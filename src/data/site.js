@@ -23,7 +23,7 @@ export const site = {
     {
       title: "Re:Memory 語憶心聲",
       bg:'#BA8A4D',
-      description: "跨代故事平台：AI 小光、故事接龍、生命地圖、家族樹與健腦任務。",
+      description: "跨代故事平台：AI 小光對話、故事生成與生命地圖。",
       tags: ["Vue", "Django", "AI", "GCP"],
       link: "#"
     },
@@ -35,51 +35,58 @@ export const site = {
       link: "#"
     },
     {
-      title: "營養教育互動遊戲",
+      title: "營養素計算APP",
       bg:'#111111',
-      description: "211 餐盤＋小任務，引導兒童理解均衡飲食。",
+      description: "BMR計算+每日活動評估。",
       tags: ["營養", "教育", "遊戲"],
       link: "#"
     },
     {
-      title: "Re:Memory 語憶心聲",
+      title: "萌寵猜拳王",
       bg:'#BA8A4D',
-      description: "跨代故事平台：AI 小光、故事接龍、生命地圖、家族樹與健腦任務。",
+      description: "簡易遊戲搭配可愛的故事劇情",
       tags: ["Vue", "Django", "AI", "GCP"],
       link: "#"
     },
     {
-      title: "AI 排班平台",
+      title: "產品到期自動提醒平台",
       bg:'#283926',
-      description: "LSTM 模型，自動產生便利商店排班。",
+      description: "串聯雲端Google Excel，每日自動進行產品到期提醒。",
       tags: ["Python", "PyTorch", "Autoencoder"],
       link: "#"
     },
     {
-      title: "營養教育互動遊戲",
+      title: "自動查找資料平台",
       bg:'#111111',
-      description: "211 餐盤＋小任務，引導兒童理解均衡飲食。",
+      description: "每日自動爬取指定網站資料，並整理成報表。",
       tags: ["營養", "教育", "遊戲"],
       link: "#"
     },
     {
-      title: "Re:Memory 語憶心聲",
-      bg:'#BA8A4D',
-      description: "跨代故事平台：AI 小光、故事接龍、生命地圖、家族樹與健腦任務。",
-      tags: ["Vue", "Django", "AI", "GCP"],
-      link: "#"
-    },
-    {
-      title: "AI 排班平台",
-      bg:'#283926',
-      description: "LSTM 模型，自動產生便利商店排班。",
-      tags: ["Python", "PyTorch", "Autoencoder"],
-      link: "#"
-    },
-    {
-      title: "營養教育互動遊戲",
+      title: "教學素材平台",
       bg:'#111111',
-      description: "211 餐盤＋小任務，引導兒童理解均衡飲食。",
+      description: "提供各式免費的網路去背圖片及學習題庫。",
+      tags: ["營養", "教育", "遊戲"],
+      link: "#"
+    },
+    {
+      title: "",
+      bg:'#111111',
+      description: "",
+      tags: ["營養", "教育", "遊戲"],
+      link: "#"
+    },
+    {
+      title: "",
+      bg:'#111111',
+      description: "",
+      tags: ["營養", "教育", "遊戲"],
+      link: "#"
+    },
+    {
+      title: "",
+      bg:'#111111',
+      description: "",
       tags: ["營養", "教育", "遊戲"],
       link: "#"
     }
