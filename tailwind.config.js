@@ -56,5 +56,6 @@ export default {
       shine: 'shine 2.2s linear infinite',
     },
   },
-  plugins: [require('@tailwindcss/typography')],
+
+  plugins: [],
 }
