@@ -112,7 +112,7 @@ function releaseItem(index) {
     <section id="skills" class="section">
       <div class="container-p px-10 py-20 min-h-[400px]">
         <div class="text-center mb-20">
-          <h2 class="mt-3 text-4xl sm:text-5xl font-extrabold tracking-wider text-[#9B5D1E]">
+          <h2 class="mt-3 text-4xl sm:text-5xl font-extrabold tracking-wider text-[#F5FAE1]">
             技能
           </h2>
         </div>
