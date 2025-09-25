@@ -121,7 +121,7 @@ function releaseItem(index) {
             <span
               v-for="(s, idx) in displaySkills"
               :key="s"
-              class="tag transition-transform duration-300 ease-out hover:-translate-y-2 hover:shadow-xl"
+              class="tag px-4 py-2 rounded-full border border-gray-400 text-gray-800 bg-white shadow-sm transition-transform duration-300 ease-out hover:-translate-y-2 hover:shadow-xl"
               :style="{ transitionDelay: (idx * 80) + 'ms' }"
             >
               {{ s }}
@@ -131,7 +131,7 @@ function releaseItem(index) {
       </div>
     </section>
 
-    <!-- ✅ 聯絡我 (直接整合你的程式) -->
+    <!-- 聯絡我 -->
     <section id="contact" class="flex flex-wrap justify-center gap-8 py-8">
       <!-- 設計諮詢 -->
       <div
