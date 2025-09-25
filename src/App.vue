@@ -105,6 +105,10 @@ function releaseItem(index) {
           </div>
         </li>
       </ol>
+    </section>
+
+
+    <!-- Skills -->
     <section id="skills" class="section">
       <div class="container-p px-10 py-20 min-h-[400px]">
         <div class="text-center mb-20">
@@ -127,7 +131,7 @@ function releaseItem(index) {
       </div>
     </section>
 
-    <!-- 聯絡我 -->
+    <!-- ✅ 聯絡我 (直接整合你的程式) -->
     <section id="contact" class="flex flex-wrap justify-center gap-8 py-8">
       <!-- 設計諮詢 -->
       <div
@@ -175,7 +179,7 @@ function releaseItem(index) {
             href="https://line.me/ti/p/你的官方帳號"
             class="text-[#b37550] font-bold underline"
           >
-            教育創意LINE官方
+            溫研創意LINE官方
           </a>
         </p>
       </div>
@@ -212,4 +216,3 @@ function releaseItem(index) {
     <Footer />
   </div>
 </template>
-
