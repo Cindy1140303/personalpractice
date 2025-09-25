@@ -179,7 +179,7 @@ function releaseItem(index) {
             href="https://line.me/ti/p/你的官方帳號"
             class="text-[#b37550] font-bold underline"
           >
-            溫研創意LINE官方
+            合作LINE官方
           </a>
         </p>
       </div>
