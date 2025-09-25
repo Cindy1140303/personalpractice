@@ -105,14 +105,10 @@ function releaseItem(index) {
           </div>
         </li>
       </ol>
-    </section>
-
-
-    <!-- Skills -->
     <section id="skills" class="section">
-      <div class="container-p px-10 py-20 min-h-[400px] ">
+      <div class="container-p px-10 py-20 min-h-[400px]">
         <div class="text-center mb-20">
-          <h2 class="mt-3 text-4xl sm:text-5xl font-extrabold tracking-wider text-[#000000]">
+          <h2 class="mt-3 text-4xl sm:text-5xl font-extrabold tracking-wider text-[#9B5D1E]">
             技能
           </h2>
         </div>
@@ -121,7 +117,7 @@ function releaseItem(index) {
             <span
               v-for="(s, idx) in displaySkills"
               :key="s"
-              class="tag px-4 py-2 rounded-full border border-gray-400 text-gray-800 bg-white shadow-sm transition-transform duration-300 ease-out hover:-translate-y-2 hover:shadow-xl"
+              class="tag transition-transform duration-300 ease-out hover:-translate-y-2 hover:shadow-xl"
               :style="{ transitionDelay: (idx * 80) + 'ms' }"
             >
               {{ s }}
