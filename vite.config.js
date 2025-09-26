@@ -7,9 +7,22 @@ export default defineConfig(({ command }) => ({
   base: command === 'build' ? '/personalpractice/' : '/',
   plugins: [vue()],
   build: {
-    manifest: 'manifest.json',
+    
     rollupOptions: {
       input: 'index.html',
+      output: {
+        inlineDynamicImports: true,
+        manualChunks: undefined,
+        entryFileNames: 'assets/app.js',
+        chunkFileNames: 'assets/[name].js',
+        assetFileNames: (assetInfo) => {
+          if (assetInfo.name && assetInfo.name.endsWith('.css')) {
+            return 'assets/app.css'
+          }
+
+          return 'assets/[name]-[hash][extname]'
+        },
+      },
     },
   },
 }))
