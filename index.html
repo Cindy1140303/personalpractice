@@ -7,57 +7,67 @@
     <title>Cindy | 簡歷</title>
     <script type="module">
       const projectPath = '/personalpractice/'
-      const host = window.location.hostname
-      const onGitHubPages = host === 'cindy1140303.github.io'
-      const inProjectPath = window.location.pathname.startsWith(projectPath)
+      const onGitHubPages = window.location.hostname === 'cindy1140303.github.io'
+      const alreadyInProject =
+        window.location.pathname === projectPath || window.location.pathname.startsWith(projectPath)
 
-      const ensureStylesheet = (href) => {
-        const link = document.createElement('link')
-        link.rel = 'stylesheet'
-        link.href = href
-        document.head.appendChild(link)
+      const appContainer = document.getElementById('app')
+
+      const showError = (error) => {
+        console.error('無法載入 GitHub Pages 資源', error)
+        if (appContainer) {
+          appContainer.innerHTML =
+            '<p style="padding: 2rem; text-align: center;">網站載入失敗，請稍後再試或聯絡網站管理員。</p>'
+        }
       }
 
-      const loadWithManifest = async () => {
+      const loadProductionBundle = async () => {
         try {
-          const manifestResponse = await fetch(`${projectPath}manifest.json`, { cache: 'no-cache' })
-          if (!manifestResponse.ok) {
-            throw new Error(`Failed to fetch manifest: ${manifestResponse.status}`)
+          const response = await fetch(`${projectPath}manifest.json`, {
+            cache: 'no-store',
+          })
+
+          if (!response.ok) {
+            throw new Error(`Failed to fetch manifest: ${response.status}`)
           }
 
-          const manifest = await manifestResponse.json()
+          const manifest = await response.json()
           const entry = manifest['src/main.js']
 
           if (!entry || !entry.file) {
-            throw new Error('Missing entry for src/main.js in manifest')
+            throw new Error('Manifest is missing the src/main.js entry')
           }
 
           if (Array.isArray(entry.css)) {
-            entry.css.forEach((cssFile) => ensureStylesheet(`${projectPath}${cssFile}`))
+            entry.css.forEach((cssFile) => {
+              const stylesheet = document.createElement('link')
+              stylesheet.rel = 'stylesheet'
+              stylesheet.href = `${projectPath}${cssFile}`
+              stylesheet.addEventListener('error', () => {
+                showError(new Error(`Failed to load stylesheet: ${cssFile}`))
+              })
+              document.head.appendChild(stylesheet)
+            })
           }
 
           const script = document.createElement('script')
           script.type = 'module'
-          script.crossOrigin = ''
           script.src = `${projectPath}${entry.file}`
+          script.crossOrigin = ''
+          script.addEventListener('error', () => {
+            showError(new Error(`Failed to load script: ${entry.file}`))
+          })
           document.head.appendChild(script)
         } catch (error) {
-          console.error('無法載入 GitHub Pages 資源', error)
-          const fallback = document.createElement('p')
-          fallback.textContent = '網站載入失敗，請稍後再試或聯絡網站管理員。'
-          fallback.style.textAlign = 'center'
-          fallback.style.marginTop = '2rem'
-          document.body.prepend(fallback)
+          showError(error)
         }
       }
 
-      if (onGitHubPages) {
-        if (!inProjectPath) {
-          const redirectUrl = projectPath + window.location.search + window.location.hash
-          window.location.replace(redirectUrl)
-        } else {
-          loadWithManifest()
-        }
+      if (onGitHubPages && !alreadyInProject) {
+        const redirect = projectPath + window.location.search + window.location.hash
+        window.location.replace(redirect)
+      } else if (onGitHubPages) {
+        loadProductionBundle()
       } else {
         import('/src/main.js')
       }
