@@ -8,5 +8,8 @@ export default defineConfig(({ command }) => ({
   plugins: [vue()],
   build: {
     manifest: 'manifest.json',
+    rollupOptions: {
+      input: 'index.html',
+    },
   },
 }))
