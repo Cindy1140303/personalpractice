@@ -6,4 +6,7 @@ import vue from '@vitejs/plugin-vue'
 export default defineConfig(({ command }) => ({
   base: command === 'build' ? '/personalpractice/' : '/',
   plugins: [vue()],
+  build: {
+    manifest: 'manifest.json',
+  },
 }))
