@@ -3,17 +3,61 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" href="/favicon.ico" />
+    <link rel="icon" href="./favicon.ico" />
     <title>Cindy | 簡歷</title>
     <script type="module">
-      const host = window.location.hostname
       const projectPath = '/personalpractice/'
+      const host = window.location.hostname
       const onGitHubPages = host === 'cindy1140303.github.io'
       const inProjectPath = window.location.pathname.startsWith(projectPath)
 
-      if (onGitHubPages && !inProjectPath) {
-        const redirectUrl = projectPath + window.location.search + window.location.hash
-        window.location.replace(redirectUrl)
+      const ensureStylesheet = (href) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = href
+        document.head.appendChild(link)
+      }
+
+      const loadWithManifest = async () => {
+        try {
+          const manifestResponse = await fetch(`${projectPath}manifest.json`, { cache: 'no-cache' })
+          if (!manifestResponse.ok) {
+            throw new Error(`Failed to fetch manifest: ${manifestResponse.status}`)
+          }
+
+          const manifest = await manifestResponse.json()
+          const entry = manifest['src/main.js']
+
+          if (!entry || !entry.file) {
+            throw new Error('Missing entry for src/main.js in manifest')
+          }
+
+          if (Array.isArray(entry.css)) {
+            entry.css.forEach((cssFile) => ensureStylesheet(`${projectPath}${cssFile}`))
+          }
+
+          const script = document.createElement('script')
+          script.type = 'module'
+          script.crossOrigin = ''
+          script.src = `${projectPath}${entry.file}`
+          document.head.appendChild(script)
+        } catch (error) {
+          console.error('無法載入 GitHub Pages 資源', error)
+          const fallback = document.createElement('p')
+          fallback.textContent = '網站載入失敗，請稍後再試或聯絡網站管理員。'
+          fallback.style.textAlign = 'center'
+          fallback.style.marginTop = '2rem'
+          document.body.prepend(fallback)
+        }
+      }
+
+      if (onGitHubPages) {
+        if (!inProjectPath) {
+          const redirectUrl = projectPath + window.location.search + window.location.hash
+          window.location.replace(redirectUrl)
+        } else {
+          loadWithManifest()
+        }
       } else {
         import('/src/main.js')
       }
