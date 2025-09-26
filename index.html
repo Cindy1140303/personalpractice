@@ -8,12 +8,12 @@
     <script type="module">
       const host = window.location.hostname
       const projectPath = '/personalpractice/'
+      const onGitHubPages = host === 'cindy1140303.github.io'
+      const inProjectPath = window.location.pathname.startsWith(projectPath)
 
-      if (host === 'cindy1140303.github.io') {
-        if (!window.location.pathname.startsWith(projectPath)) {
-          const redirectUrl = projectPath + window.location.search + window.location.hash
-          window.location.replace(redirectUrl)
-        }
+      if (onGitHubPages && !inProjectPath) {
+        const redirectUrl = projectPath + window.location.search + window.location.hash
+        window.location.replace(redirectUrl)
       } else {
         import('/src/main.js')
       }
