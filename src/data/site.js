@@ -68,7 +68,7 @@ export const site = {
       description: "提供各式免費的網路去背圖片及學習題庫。",
       tags: ["營養", "教育", "遊戲"],
       link: "#"
-    },
+    }
   ],
   experience: [
     { time: "2023 — Now", title: "網站設計", detail: "視覺與互動樣式、流程圖。" },
