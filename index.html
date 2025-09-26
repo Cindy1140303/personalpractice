@@ -5,73 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" href="./favicon.ico" />
     <title>Cindy | 簡歷</title>
-    <script type="module">
+    <script>
       const projectPath = '/personalpractice/'
       const onGitHubPages = window.location.hostname === 'cindy1140303.github.io'
       const alreadyInProject =
         window.location.pathname === projectPath || window.location.pathname.startsWith(projectPath)
 
-      const appContainer = document.getElementById('app')
 
-      const showError = (error) => {
-        console.error('無法載入 GitHub Pages 資源', error)
-        if (appContainer) {
-          appContainer.innerHTML =
-            '<p style="padding: 2rem; text-align: center;">網站載入失敗，請稍後再試或聯絡網站管理員。</p>'
-        }
-      }
-
-      const loadProductionBundle = async () => {
-        try {
-          const response = await fetch(`${projectPath}manifest.json`, {
-            cache: 'no-store',
-          })
-
-          if (!response.ok) {
-            throw new Error(`Failed to fetch manifest: ${response.status}`)
-          }
-
-          const manifest = await response.json()
-          const entry = manifest['src/main.js']
-
-          if (!entry || !entry.file) {
-            throw new Error('Manifest is missing the src/main.js entry')
-          }
-
-          if (Array.isArray(entry.css)) {
-            entry.css.forEach((cssFile) => {
-              const stylesheet = document.createElement('link')
-              stylesheet.rel = 'stylesheet'
-              stylesheet.href = `${projectPath}${cssFile}`
-              stylesheet.addEventListener('error', () => {
-                showError(new Error(`Failed to load stylesheet: ${cssFile}`))
-              })
-              document.head.appendChild(stylesheet)
-            })
-          }
-
-          const script = document.createElement('script')
-          script.type = 'module'
-          script.src = `${projectPath}${entry.file}`
-          script.crossOrigin = ''
-          script.addEventListener('error', () => {
-            showError(new Error(`Failed to load script: ${entry.file}`))
-          })
-          document.head.appendChild(script)
-        } catch (error) {
-          showError(error)
-        }
-      }
 
       if (onGitHubPages && !alreadyInProject) {
         const redirect = projectPath + window.location.search + window.location.hash
         window.location.replace(redirect)
-      } else if (onGitHubPages) {
-        loadProductionBundle()
-      } else {
-        import('/src/main.js')
       }
     </script>
+    <script type="module" src="/src/main.js"></script>
   </head>
   <body class="bg-neutral-50 text-neutral-900">
     <div id="app"></div>
