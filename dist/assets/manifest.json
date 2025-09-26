@@ -1,0 +1,39 @@
+{
+  "favicon.ico": {
+    "file": "assets/favicon-DYiLxDon.ico",
+    "src": "favicon.ico"
+  },
+  "index.html": {
+    "file": "assets/index-CO8KxT5m.js",
+    "name": "index",
+    "src": "index.html",
+    "isEntry": true,
+    "dynamicImports": [
+      "src/main.js"
+    ],
+    "assets": [
+      "assets/favicon-DYiLxDon.ico"
+    ]
+  },
+  "src/assets/form-icon.png": {
+    "file": "assets/form-icon-qQFUeXnZ.png",
+    "src": "src/assets/form-icon.png"
+  },
+  "src/assets/line-icon.png": {
+    "file": "assets/line-icon-CFeNUumy.png",
+    "src": "src/assets/line-icon.png"
+  },
+  "src/main.js": {
+    "file": "assets/main-W1SIkECa.js",
+    "name": "main",
+    "src": "src/main.js",
+    "isDynamicEntry": true,
+    "css": [
+      "assets/main-B3FucMnP.css"
+    ],
+    "assets": [
+      "assets/form-icon-qQFUeXnZ.png",
+      "assets/line-icon-CFeNUumy.png"
+    ]
+  }
+}
