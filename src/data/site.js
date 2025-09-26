@@ -69,27 +69,6 @@ export const site = {
       tags: ["營養", "教育", "遊戲"],
       link: "#"
     },
-    {
-      title: "",
-      bg:'#111111',
-      description: "",
-      tags: ["營養", "教育", "遊戲"],
-      link: "#"
-    },
-    {
-      title: "",
-      bg:'#111111',
-      description: "",
-      tags: ["營養", "教育", "遊戲"],
-      link: "#"
-    },
-    {
-      title: "",
-      bg:'#111111',
-      description: "",
-      tags: ["營養", "教育", "遊戲"],
-      link: "#"
-    }
   ],
   experience: [
     { time: "2023 — Now", title: "網站設計", detail: "視覺與互動樣式、流程圖。" },
