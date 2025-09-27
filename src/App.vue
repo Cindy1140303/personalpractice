@@ -95,8 +95,8 @@ function releaseItem(index) {
           <!-- 內容（左右在上、中央在下） -->
           <div
             :class="[
-              'relative z-10 w-[280px] max-w-[90vw] text-center',
-              idx === 1 ? 'mt-20 pt-20' : 'mb-20 pb-20'   // 中間往下、左右往上
+              'relative z-10 w-[280px] max-w-[90vw] text-center transition-all duration-300',
+              idx % 2 === 0 ? 'mb-20 pb-20' : 'mt-20 pt-20'
             ]"
           >
             <h3 class="text-xl font-semibold tracking-wide">{{ e.title }}</h3>
