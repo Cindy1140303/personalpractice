@@ -1,3 +1,14 @@
+<script setup>
+import favicon from '../assets/favicon2.png'  //
+
+defineProps({
+  title: { type: String, default: '關於我' },
+  intro: { type: String, default: '' },
+  highlights: { type: Array, default: () => [] },
+  /** 傳圖片路徑即可，自動裁成圓形；不傳時顯示 "image" 文字 */
+  photo: { type: String, default: '' },
+})
+</script>
 <template>
   <!-- 奶油米底 + 裝飾圓 -->
   <section id="about" class="section max-w-none px-0 bg-[#FAF6ED] relative overflow-hidden">
@@ -32,14 +43,11 @@
                  mr-[-24px] sm:mr-[-40px] lg:mr-[-72px]"  ><!-- 新增：往右推 -->
         
           <img
-            v-if="photo"
-            :src="photo"
+            :src="photo || favicon"
             alt="我的照片"
             class="w-full h-full object-cover rounded-full"
           />
-          <div v-else class="w-full h-full flex items-center justify-center text-3xl text-red-500/70 select-none">
-            image
-          </div>
+         <!--<div v-else class="w-full h-full flex items-center justify-center text-3xl text-red-500/70 select-none">image</div>-->
         </div>
       </div>
     </div>
@@ -50,12 +58,3 @@
   </section>
 </template>
 
-<script setup>
-defineProps({
-  title: { type: String, default: '關於我' },
-  intro: { type: String, default: '' },
-  highlights: { type: Array, default: () => [] },
-  /** 傳圖片路徑即可，自動裁成圓形；不傳時顯示 "image" 文字 */
-  photo: { type: String, default: '' },
-})
-</script>
