@@ -30,7 +30,8 @@ jobs:
           BASE_URL: '/personalpractice/'
         run: npm run build
       - name: Upload artifact for GitHub Pages
-        uses: actions/upload-pages-artifact@v1
+        # <-- 更新到新版 (v2)，避免上游使用被棄用的 upload-artifact v3
+        uses: actions/upload-pages-artifact@v2
         with:
           path: ./dist
 
