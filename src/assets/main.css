@@ -23,16 +23,25 @@
     padding-inline: 1rem; /* 左右內距 16px */
     padding-block: 0rem;  /* 上下內距 0 */
   }
+  @screen sm {
+    .container-p {
+      padding-inline: 1.5rem; /* 24px */
+    }
+  }
+  @screen md {
+    .container-p {
+      padding-inline: 2rem; /* 32px */
+    }
+  }
 
   /* 區塊：等同於容器 + 區塊上下間距 + 固定最小高度（無 var 版） */
   .section{
-    max-width: 72%;      /* 內容最大寬度 ≈ 1152px */
+    width: 100%;           /* 始終使用全寬 */
     margin-inline: auto;   /* 水平置中；若不要置中改成 0 */
     padding-inline: 1rem;  /* 左右內距 16px */
     padding-block: 0rem;   /* 上下內距 0（上下空隙用下面的 py- 控制） */
-    @apply py-16 sm:py-20; /* 區塊的上下空隙（Tailwind） */
-    min-height: 100%;     /* 固定最小高度 */
-    @screen sm { .section h2 + p { margin-top: 1.25rem; } }
+    @apply py-12 sm:py-16 md:py-20; /* 區塊的上下空隙（Tailwind） */
+    min-height: auto;      /* 改為 auto 讓內容決定高度 */
   }
   .card{ 
     @apply bg-white rounded-2xl shadow-lg ring-1 ring-neutral-200; 

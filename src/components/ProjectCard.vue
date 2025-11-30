@@ -3,9 +3,9 @@
     :style="{ backgroundColor: bg }"
     :class="[
       // base
-      'rounded-lg p-6 ring-1 shadow-sm',
-      // 新增卡片尺寸
-      'w-80 h-[300px]',
+      'rounded-lg p-4 sm:p-6 ring-1 shadow-sm',
+      // 響應式卡片尺寸
+      'w-full max-w-[320px] sm:w-80 h-[280px] sm:h-[300px]',
       // 動畫（hover/鍵盤 focus 都有微動）
       'transition-all duration-300 ease-out transform-gpu will-change-transform',
       'hover:-translate-y-1 hover:shadow-lg hover:shadow-black/10',
@@ -20,9 +20,9 @@
     tabindex="0"
   >
     <!-- 讓鍵盤也能觸發 focus-within 微動；不需要可移除 tabindex -->
-    <h3 class="font-semibold text-lg">{{ project.title }}</h3>
+    <h3 class="font-semibold text-base sm:text-lg">{{ project.title }}</h3>
 
-    <p class="mt-2" :class="isDark ? 'text-white/90' : 'text-neutral-700'">
+    <p class="mt-2 text-sm sm:text-base" :class="isDark ? 'text-white/90' : 'text-neutral-700'">
       {{ project.description }}
     </p>
 

@@ -50,14 +50,14 @@ function releaseItem(index) {
     />
 
     <!-- Projects -->
-    <section id="projects" class="section max-w-none px-0 bg-[#EFE6DD]">
-      <div class="container-p px-10 py-15 h-200">
-        <div class="text-center mb-20">
-          <h2 class="mt-3 text-4xl sm:text-5xl font-extrabold tracking-wider text-[#9B5D1E]">
+    <section id="projects" class="w-full bg-[#EFE6DD] overflow-hidden">
+      <div class="w-full px-[5%] sm:px-[8%] lg:px-[10%] py-[5%] sm:py-[6%] lg:py-[8%]">
+        <div class="text-center mb-12 sm:mb-16">
+          <h2 class="mt-3 text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-wider text-[#9B5D1E]">
             專案展示
           </h2>
         </div>
-        <section class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 text-center">
+        <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 justify-items-center w-full">
             <ProjectCard
               v-for="(p, i) in site.projects"
               :key="p.title"
@@ -69,16 +69,17 @@ function releaseItem(index) {
       </div>
     </section>
      <!-- 經歷 Experience -->
-    <section id="experience" class="section">
-      <div class="container-p px-10 py-15 h-200">
+    <section id="experience" class="w-full overflow-hidden">
+      <div class="w-full px-[5%] sm:px-[8%] lg:px-[10%] py-[5%] sm:py-[6%] lg:py-[8%]">
           <!-- 標題區 -->
-        <div class="text-center mb-20">
-          <h2 class="mt-3 text-4xl sm:text-5xl font-extrabold tracking-wider text-[#000000]">
+        <div class="text-center mb-8 sm:mb-12">
+          <h2 class="mt-3 text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-wider text-[#000000]">
                 經驗
           </h2>
         </div>
-      </div>
-      <ol class="relative flex items-center justify-between py-16">
+      
+      <!-- 桌面版：水平時間軸（只在超大螢幕顯示） -->
+      <ol class="relative hidden xl:flex items-center justify-between py-8 xl:py-16">
         <!-- 中央水平線 -->
         <span class="pointer-events-none absolute left-0 top-1/2 -translate-y-1/2 w-full h-px bg-neutral-200 z-0"></span>
 
@@ -105,18 +106,29 @@ function releaseItem(index) {
           </div>
         </li>
       </ol>
+
+      <!-- 中小螢幕：垂直時間軸 -->
+      <ol class="xl:hidden relative space-y-6 sm:space-y-8 border-l-2 border-neutral-200 pl-4 sm:pl-6 ml-3 sm:ml-4">
+        <li v-for="(e, idx) in site.experience" :key="e.title" class="relative">
+          <span class="absolute -left-[21px] sm:-left-[29px] w-3 h-3 sm:w-4 sm:h-4 bg-primary-400 rounded-full ring-3 sm:ring-4 ring-primary-100"></span>
+          <time class="block text-xs sm:text-sm text-neutral-500 mb-1">{{ e.time }}</time>
+          <h3 class="text-base sm:text-lg font-semibold tracking-wide">{{ e.title }}</h3>
+          <p class="mt-1 sm:mt-2 text-neutral-700 text-sm sm:text-base">{{ e.detail }}</p>
+        </li>
+      </ol>
+      </div>
     </section>
 
 
     <!-- Skills -->
-    <section id="skills" class="section">
-      <div class="container-p px-10 py-20 min-h-[400px]">
-        <div class="text-center mb-20">
-          <h2 class="mt-3 text-4xl sm:text-5xl font-extrabold tracking-wider text-[#9B5D1E]">
+    <section id="skills" class="w-full overflow-hidden">
+      <div class="w-full px-[5%] sm:px-[8%] lg:px-[10%] py-[5%] sm:py-[6%] lg:py-[10%] min-h-[300px] sm:min-h-[400px]">
+        <div class="text-center mb-12 sm:mb-16">
+          <h2 class="mt-3 text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-wider text-[#9B5D1E]">
             技能
           </h2>
         </div>
-        <div class="flex flex-wrap gap-6 mt-8">
+        <div class="flex flex-wrap gap-3 sm:gap-4 md:gap-6 mt-6 sm:mt-8 justify-center">
           <transition-group name="skill-fade" tag="div" class="flex flex-wrap gap-6">
             <span
               v-for="(s, idx) in displaySkills"
@@ -132,7 +144,9 @@ function releaseItem(index) {
     </section>
 
     <!-- ✅ 聯絡我 (直接整合你的程式) -->
-    <section id="contact" class="flex flex-wrap justify-center gap-8 py-8">
+    <section id="contact" class="w-full overflow-hidden">
+      <div class="w-full px-[5%] sm:px-[8%] lg:px-[10%] py-[5%] sm:py-[6%] lg:py-[8%]">
+        <div class="flex flex-wrap justify-center gap-6 sm:gap-8">
       <!-- 設計諮詢 -->
       <div
         class="contact-item text-center max-w-[200px]"
@@ -210,6 +224,8 @@ function releaseItem(index) {
             Typeform 表單
           </a>
         </p>
+      </div>
+      </div>
       </div>
     </section>
 
