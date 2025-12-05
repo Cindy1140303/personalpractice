@@ -11,7 +11,7 @@ defineProps({
 </script>
 <template>
   <!-- 奶油米底 + 裝飾圓 -->
-  <section id="about" class="w-full bg-[#FAF6ED] relative overflow-hidden">
+  <section id="about" class="w-full bg-[#FAF6ED] relative overflow-hidden pt-16 sm:pt-20 md:pt-24 lg:pt-28">
     <div class="w-full grid grid-cols-1 lg:grid-cols-2 items-center gap-6 lg:gap-10 py-[5%] sm:py-[6%] lg:py-[8%] relative z-10 px-[5%] sm:px-[8%] lg:px-[10%]">
 
       <!-- 左側：標題／橫線／內文／亮點 -->
