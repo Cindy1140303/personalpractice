@@ -71,7 +71,7 @@ export const site = {
     }
   ],
   experience: [
-    { time: '2025 — Now', title: '網站設計', detail: '視覺與互動樣式、流程圖。' },
+    { time: '2025 — Now', title: '網站設計公司行政兼產品人員', detail: '網站後台上稿、專案測試與產品採購流程圖。' },
     { time: '2025畢業', title: '輔大AI專班', detail: '機器學習、深度學習、APP程式設計、Python爬蟲、資料探勘與視覺化及大數據分析。' },
     { time: '2021 — Now', title: '兒童程式教師', detail: '互動遊戲教材、程式邏輯、Scratch/Python/JS 課程。' },
     { time: '2021 — Now', title: '營養師', detail: '營養教育、飲食諮詢、課程內容設計。' },
